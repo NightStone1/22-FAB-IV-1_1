@@ -1,0 +1,50 @@
+﻿<Window x:Class="Lab1.Input"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab1"
+        mc:Ignorable="d"
+        Title="Ввод данных" Height="450" Width="850">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions >
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel  Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Label Content="Номер группы" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="NmbGrp" PreviewTextInput="Int_PreviewTextInput" MinWidth="150" TextAlignment="Center"/>
+        </StackPanel>
+        <StackPanel  Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Label Content="Порядковый номер журнала" Grid.Row="1" Grid.Column="0"/>
+            <TextBox x:Name="NmbJ" PreviewTextInput="Int_PreviewTextInput" MinWidth="150" TextAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Label Content="Фамилия" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="LstName" PreviewTextInput="Text_PreviewTextInput" MinWidth="150" TextAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Label Content="Имя" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="Name" PreviewTextInput="Text_PreviewTextInput" MinWidth="150" TextAlignment="Center"/>
+        </StackPanel>
+        <TextBox x:Name="BinNmbGrp" Grid.Row="0" Grid.Column="1" Height="20" IsReadOnly="True" MaxWidth="150" TextAlignment="Center"/>
+        <TextBox x:Name="BinNmbJ" Grid.Row="1" Grid.Column="1" Height="20" IsReadOnly="True" MaxWidth="150" TextAlignment="Center"/>
+        <TextBox x:Name="BinLstName" Grid.Row="2" Grid.Column="1" Height="20" IsReadOnly="True" MaxWidth="150" TextAlignment="Center"/>
+        <TextBox x:Name="BinName" Grid.Row="3" Grid.Column="1" Height="20" IsReadOnly="True" MaxWidth="150" TextAlignment="Center"/>
+        <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="Исходная последовательность бит" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox Name="Bin" IsReadOnly="True" TextAlignment="Center"/>
+        </StackPanel>
+        <Button Content="Тест" x:Name="GetTestCode" Grid.Column="0" Grid.Row="5"  Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="80" Click="GetTestCode_Click"/>
+        <Button Content="Получить последовательность бит" x:Name="GetCode" Grid.Column="0" Grid.Row="5" Margin="0,0,120,0" Click="GetCode_Click" Height="40" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200"/>
+        <Button Content="Перейти к кодировке" x:Name="Coding" Grid.Column="1" Grid.Row="5" Width="148" Click="Coding_Click" HorizontalAlignment="Left" Height="40" VerticalAlignment="Center" Margin="120,0,0,0"/>
+    </Grid>
+</Window>
