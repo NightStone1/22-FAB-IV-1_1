@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Text.RegularExpressions;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Lab1
@@ -32,8 +33,10 @@ namespace Lab1
             }
             else 
             {
-                LstName.Text.Replace(" ", ""); //удаление пробелов
-                Name.Text.Replace(" ", "");//удаление пробелов
+                NmbGrp.Text = Regex.Replace(NmbGrp.Text, @"\s+", ""); //удаление пробелов
+                NmbJ.Text = Regex.Replace(NmbJ.Text, @"\s+", ""); //удаление пробелов
+                LstName.Text = Regex.Replace(LstName.Text, @"\s+", ""); //удаление пробелов
+                Name.Text = Regex.Replace(Name.Text, @"\s+", ""); //удаление пробелов
                 string binG = Convert.ToString(int.Parse(NmbGrp.Text), 2); //Преобразование числа в двоичную строку
                 string binJ = Convert.ToString(int.Parse(NmbJ.Text), 2);// Преобразование числа в двоичную строку
                 string binL = Convert.ToString(LstName.Text.Length, 2); // Преобразование длины строки в двоичную строку
