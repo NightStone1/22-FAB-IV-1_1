@@ -1,14 +1,5 @@
-﻿using System.Net.NetworkInformation;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Lab1
 {
@@ -19,12 +10,9 @@ namespace Lab1
         {
             InitializeComponent();
         }
-
         private void Coding_Click(object sender, RoutedEventArgs e)
         {
             //Переходим с последовательностью битов в следующую форму
-            //
-            //
             if (Bin.Text.Length == 0) 
             {
                 MessageBox.Show("Последовательность бит отсутствует", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -38,8 +26,6 @@ namespace Lab1
         private void GetCode_Click(object sender, RoutedEventArgs e)
         {
             //Получение последовательности бит через ввод данных
-            //
-            //
             if ((LstName.Text.Length < 1)&&(Name.Text.Length < 1) && (NmbGrp.Text.Length < 1) && (NmbJ.Text.Length < 1)) 
             {
                 MessageBox.Show("Необходимо заполнить все поля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -48,7 +34,7 @@ namespace Lab1
             {
                 LstName.Text.Replace(" ", ""); //удаление пробелов
                 Name.Text.Replace(" ", "");//удаление пробелов
-                string binG = Convert.ToString(int.Parse(NmbGrp.Text), 2); Преобразование числа в двоичную строку
+                string binG = Convert.ToString(int.Parse(NmbGrp.Text), 2); //Преобразование числа в двоичную строку
                 string binJ = Convert.ToString(int.Parse(NmbJ.Text), 2);// Преобразование числа в двоичную строку
                 string binL = Convert.ToString(LstName.Text.Length, 2); // Преобразование длины строки в двоичную строку
                 string binN = Convert.ToString(Name.Text.Length, 2);   // Преобразование длины строки в двоичную строку
@@ -61,29 +47,24 @@ namespace Lab1
                 Bin.Text = bit;
             }
         }
-
         private void Int_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             //разрешение ввода только цифр
             e.Handled = !IsDigit(e.Text);
         }
-
         private void Text_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             //разрешение ввода только букв
             e.Handled = !IsLetter(e.Text);
         }
-
         private bool IsLetter(string text)
         {
             return text.All(char.IsLetter);
         }
-
         private bool IsDigit(string text)
         {
             return text.All(char.IsDigit);
         }
-
         private void GetTestCode_Click(object sender, RoutedEventArgs e)
         {
             //тестовая последовательность бит для сверки с кодом, данным в лабораторной работе

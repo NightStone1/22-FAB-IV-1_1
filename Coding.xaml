@@ -5,25 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab1"
         mc:Ignorable="d"
-        Title="Кодирование" Height="450" Width="1000">
+        Title="Кодирование" Height="650" Width="1000">
     <Grid Margin="0, 25, 0, 0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto" MinWidth="127"/>
+            <ColumnDefinition x:Name="test" Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions >
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition Height="0.6*"/>
         </Grid.RowDefinitions>
-        <Canvas Grid.Row="0" Grid.Column="1" x:Name="NRZ"/>
-        <Canvas Grid.Row="1" Grid.Column="1" x:Name="NRZI"/>
-        <Canvas Grid.Row="3" Grid.Column="1" x:Name="AMI"/>
-        <Canvas Grid.Row="2" Grid.Column="1" x:Name="MC"/>
-        <Label Content="NRZ" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Content="NRZI" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Content="Биполярный код AMI" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Content="Манчестерский код" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Canvas Grid.Row="0" x:Name="NRZ" Margin="0,0,0,0" Grid.Column="1" Width="auto"/>
+        <Canvas Grid.Row="1" x:Name="NRZI" Margin="0,0,0,0" Grid.Column="1" Width="auto"/>
+        <Canvas Grid.Row="3" x:Name="AMI" Margin="0,0,0,0" Grid.Column="1" Width="auto"/>
+        <Canvas Grid.Row="2" x:Name="MC" Margin="0,0,0,0" Grid.Column="1" Width="auto"/>
+        <Label Content="NRZ" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Label Content="NRZI" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Биполярный код AMI" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Манчестерский код" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="Auto" Orientation="Horizontal">
+            <StackPanel Orientation="Vertical" Margin="5">
+                <TextBox TextAlignment="Center" Text="Масштаб по X" Width="150" IsReadOnly="True"/>
+                <TextBox TextAlignment="Center" x:Name="xValue" Text=" " Width="150" IsReadOnly="True"/>
+                <Slider x:Name="xSlider" Maximum="50" Minimum="1" Width="150" Height="30" ValueChanged="xSlider_ValueChanged" Value="0" TickFrequency="1" IsSnapToTickEnabled="True"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="5">
+                <TextBox TextAlignment="Center" Text="Масштаб по Y" Width="150" IsReadOnly="True"/>
+                <TextBox TextAlignment="Center" x:Name="yValue" Text=" " IsReadOnly="True" Width="150"/>
+                <Slider x:Name="ySlider" Maximum="50" Minimum="1" Width="150" Height="30" ValueChanged="ySlider_ValueChanged" Value="0" TickFrequency="1" IsSnapToTickEnabled="True"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
